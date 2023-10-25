@@ -9,7 +9,7 @@ const url = `mongodb://${DB_HOST}:${DB_PORT}`;
  * Class for performing operations with Mongo service
  */
 class DBClient {
-  constructor() {
+  constructor () {
     this.db = null; // Initialize the database connection property
 
     // this.initialize();
@@ -34,7 +34,7 @@ class DBClient {
    * Checks if connection to Redis is Alive
    * @return {boolean} true if connection alive or false if not
    */
-  isAlive() {
+  isAlive () {
     return Boolean(this.db);
   }
 
@@ -42,7 +42,7 @@ class DBClient {
    * Returns the number of documents in the collection users
    * @return {number} amount of users
    */
-  async nbUsers() {
+  async nbUsers () {
     const numberOfUsers = await this.usersCollection.countDocuments();
     return numberOfUsers;
   }
@@ -51,7 +51,7 @@ class DBClient {
    * Returns the number of documents in the collection files
    * @return {number} amount of files
    */
-  async nbFiles() {
+  async nbFiles () {
     const numberOfFiles = await this.filesCollection.countDocuments();
     return numberOfFiles;
   }

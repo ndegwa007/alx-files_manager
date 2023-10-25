@@ -1,6 +1,7 @@
 import express from 'express';
 import AppController from '../controllers/AppController';
 import UsersController from '../controllers/UsersController';
+import AuthController from '../controllers/AuthController';
 
 function controllerRouting(app) {
   const router = express.Router();
@@ -21,6 +22,19 @@ function controllerRouting(app) {
   // users routes
   router.post('/users', (req, res) => {
     UsersController.postNew(req, res);
+  });
+
+  router.get('/users/me', (req, res) => {
+    UsersController.getMe(req, res);
+  });
+
+  // authentication
+  router.get('/connect', (req, res) => {
+    AuthController.getConnect(req, res);
+  });
+
+  router.get('/disconnect', (req, res) => {
+    AuthController.getDisconnect(req, res);
   });
 }
 export default controllerRouting;
