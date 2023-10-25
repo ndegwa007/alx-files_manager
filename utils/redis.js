@@ -3,7 +3,7 @@
 const Redis = require('ioredis');
 
 class RedisClient {
-  constructor (options) {
+  constructor(options) {
     this.client = new Redis(options);
 
     // Handle errors and log them
@@ -20,11 +20,11 @@ class RedisClient {
     });
   }
 
-  isAlive () {
+  isAlive() {
     return this.client.status === 'ready';
   }
 
-  async get (key) {
+  async get(key) {
     try {
       return await this.client.get(key);
     } catch (error) {
@@ -33,7 +33,7 @@ class RedisClient {
     }
   }
 
-  async set (key, value, duration) {
+  async set(key, value, duration) {
     try {
       await this.client.set(key, value, 'EX', duration);
     } catch (error) {
@@ -42,7 +42,7 @@ class RedisClient {
     }
   }
 
-  async del (key) {
+  async del(key) {
     try {
       await this.client.del(key);
     } catch (error) {
@@ -56,7 +56,7 @@ const redisClient = new RedisClient({
   host: 'localhost', // Redis server hostname
   port: 6379, // Redis server port
   // password: 'your_password', // If required
-  db: 0 // Database index (default is 0)
+  db: 0, // Database index (default is 0)
 });
 
 module.exports = redisClient;
