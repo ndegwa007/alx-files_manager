@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 
-const baseUtils = {
+const basicUtils = {
 
   /**
    * Checks if Id is Valid for Mongo
