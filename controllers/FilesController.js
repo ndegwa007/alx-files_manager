@@ -54,7 +54,7 @@ class FilesController {
   static async postUpload(request, response) {
     const { userId } = await userUtils.getUserIdAndKey(request);
 
-    if (!basicUtils.isValid(userId)) return response.status(401).send({ error: 'Unauthorized' });
+    if (!basicUtils.isValidId(userId)) return response.status(401).send({ error: 'Unauthorized' });
 
     if (!userId && request.body.type === 'image') {
       await fileQueue.add({});
