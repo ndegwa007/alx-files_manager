@@ -20,4 +20,4 @@ const basicUtils = {
 
 };
 
-export default baseUtils;
+export default basicUtils;
